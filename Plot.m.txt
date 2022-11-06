@@ -1,0 +1,19 @@
+clear ;
+Cw = readtable('summary_W.csv');
+Cr = readtable('summary_R.csv');
+X=50:50:600
+y_w = Cw{:,7}
+y_r = Cr{:,7}
+figure
+plot(X,y_w,'-ks',X,y_r,'-rs','LineWidth',2)
+xlabel('Send Rate (TPS)')
+ylabel(' Latency ')
+legend({'Write Legend','Query Legend'},'Location','northwest')
+figure
+bar_w =Cw{:,8}
+bar_r =Cr{:,8}
+bar_ =[bar_w bar_r]
+bar(X,bar_);
+xlabel('Send Rate (TPS)')
+ylabel(' Throughput (TPS) ')
+legend({'Write Throughput (TPS)','Query Throughput (TPS)'},'Location','northwest')
